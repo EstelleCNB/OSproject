@@ -1,0 +1,11 @@
+=== Process Information ===
+Process ID: 3
+Parent Process ID: 1
+Hostname: lab-container
+
+=== Current Processes ===
+    PID    PPID COMMAND
+      1       0 sh
+      3       1 python
+      4       3 ps
+
