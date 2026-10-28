@@ -1,0 +1,68 @@
+##### CPU: unlimited
+Command: sudo systemd-run --scope -q python3 experiments/cpu_test.py
+Configured cpu.max : max 100000
+Iterations         : 54836267
+Wall time (s)      : 5.00
+CPU time used (s)  : 5.00
+Measured CPU share : 100.0%
+Exit status: 0
+
+##### CPU: quota 20%
+Command: sudo systemd-run --scope -q -p CPUQuota=20% python3 experiments/cpu_test.py
+Configured cpu.max : 20000 100000
+Iterations         : 7061342
+Wall time (s)      : 5.01
+CPU time used (s)  : 1.01
+Measured CPU share : 20.1%
+Exit status: 0
+
+##### CPU: quota 50%
+Command: sudo systemd-run --scope -q -p CPUQuota=50% python3 experiments/cpu_test.py
+Configured cpu.max : 50000 100000
+Iterations         : 38353756
+Wall time (s)      : 5.00
+CPU time used (s)  : 2.53
+Measured CPU share : 50.6%
+Exit status: 0
+
+##### Memory: unlimited, 50 MB
+Command: sudo systemd-run --scope -q python3 experiments/memory_test.py 50
+Configured memory.max: max
+Target allocation (MB): 50
+Allocated 10 MB
+Allocated 20 MB
+Allocated 30 MB
+Allocated 40 MB
+Allocated 50 MB
+Peak RSS (MB): 59.1
+Memory test finished.
+Exit status: 0
+
+##### Memory: limit 100M, allocate 50 MB
+Command: sudo systemd-run --scope -q -p MemoryMax=100M -p MemorySwapMax=0 python3 experiments/memory_test.py 50
+Configured memory.max: 104857600
+Target allocation (MB): 50
+Allocated 10 MB
+Allocated 20 MB
+Allocated 30 MB
+Allocated 40 MB
+Allocated 50 MB
+Peak RSS (MB): 59.1
+Memory test finished.
+Exit status: 0
+
+##### Memory: limit 100M, allocate 200 MB
+Command: sudo systemd-run --scope -q -p MemoryMax=100M -p MemorySwapMax=0 python3 experiments/memory_test.py 200
+Configured memory.max: 104857600
+Target allocation (MB): 200
+Allocated 10 MB
+Allocated 20 MB
+Allocated 30 MB
+Allocated 40 MB
+Allocated 50 MB
+Allocated 60 MB
+Allocated 70 MB
+Allocated 80 MB
+Allocated 90 MB
+Exit status: 137
+
