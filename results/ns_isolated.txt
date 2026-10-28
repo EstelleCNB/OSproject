@@ -1,0 +1,10 @@
+Hostname:       lab-container
+My PID:         1
+Process count:  4
+PID namespace:  pid:[4026532144]
+UTS namespace:  uts:[4026532143]
+
+--- Visible processes ---
+    PID    PPID COMMAND
+      1       0 bash
+      9       1 ps
